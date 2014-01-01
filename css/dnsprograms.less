@@ -1,0 +1,197 @@
+/* Primary less file, imports bootstrap less as base of project */
+
+@import './bootstrap/bootstrap.less';
+
+/* Create buffer for fixed top/bottom bars */
+body {
+	position: relative;
+	padding-top: 50px;
+	padding-bottom: 50px;
+}
+
+.left {
+	float: left;
+}
+
+.right {
+	float: right;
+}
+
+/* Accomodate vertical centering main headers */
+main {
+	> header {
+		p {	
+			line-height: 39px;
+		}
+	}
+	> section {
+		margin: 0 0 0 24px;
+		&.main-list {
+			margin: 0;
+		}
+		> header {
+			p {
+				line-height: 33px;
+			}
+		}
+		> div {
+			margin: 0 0 0 24px;
+			p {
+				line-height: 26px;
+			}
+		}
+	}
+}
+
+/* Create full-container width bars, colored for each taxonomy */
+.section-info {
+	div {
+		.make-row();
+		h1, h2, h3, h4 {
+			.make-md-column(2);
+			.make-lg-column(2);
+			clear: left;
+			color: #FFFFFF;
+			margin: 0;
+			padding: 12px;
+		}
+		ul, p {
+			.make-md-column(10);
+			.make-lg-column(10);
+			font-size: 18px; 
+			list-style: none;		
+			margin: 0;
+			padding: 12px;
+		}
+		&.age-ranges {
+			background-color: #E7F4C0;
+			h1, h2, h3, h4 {
+				background-color: #2B5034;
+			}
+			ul, p {
+				color: #2B5034;	
+			}
+		}
+		&.brochure-editions {
+			background-color: #FBD5BC;
+			h1, h2, h3, h4 {
+				background-color: #F4853C;
+			}
+			ul, p {
+				color: #F4853C;	
+			}
+		}
+		&.program-locations {
+			background-color: #D8CCBA;				
+			h1, h2, h3, h4 {
+				background-color: #7F561B;
+			}
+			ul, p {
+				color: #7F561B;
+			}
+		}
+		&.categories, &.series {
+			background-color: #C4E1E0;				
+			h1, h2, h3, h4 {
+				background-color: #007E7E;
+			}
+			ul, p {
+				color: #007E7E;
+			}
+		}
+		
+	}
+}
+
+/* Formatting for the general program listing */
+#program-table {
+	ul {
+		list-style: none;
+		padding-left: 0;
+	}
+	.title {
+		width: 150px;
+	}
+	.description {
+		padding: 10px;
+		width: 300px;
+	}
+	.series-title {
+		font-weight: bold;
+	}
+	.program-image {
+		padding: 10px;
+		width: 170px;
+	}
+	td.age-ranges-list {
+		width: 90px;
+	}
+	td.teachers-list {
+		width: 175px;
+	}
+}
+
+/* Top Navbar search box */
+#searchform {
+	.visible-md();
+	.visible-lg();
+	padding: 8px 20px;
+}
+
+.navbar-fixed-bottom {
+	.clearfix();
+	padding-top: 15px;
+	.nav-previous {
+		.left;
+	}
+	.nav-next {
+		.right;
+	}	
+}
+
+/* Single program view  */
+.single {
+	.clearfix();
+	.make-row();
+	padding: 0 15px 15px;
+	&:nth-of-type(odd) {
+	    background: #e0e0e0;
+	}
+	.title {
+		.clearfix();
+		color: #007E7A;
+		a {
+			color: #007E7A;
+		}
+		h1 {
+			font-size: 32px;
+			margin-bottom: 8px 0;
+		}
+		h2 {
+			font-size: 18px;
+			margin: 8px 0 24px 8px;
+		}
+	}
+	.details {
+		.clearfix();
+		.schedule {
+			.make-md-column(3);
+			.make-lg-column(3);
+			color: #A3681B;
+			font-size: 1.1em;
+			font-weight: bold;
+			text-transform: uppercase;
+			.price-field {
+				text-align: left;
+				.price-label {
+					display: inline-block;
+					width: 200px;
+				}
+			}
+		}
+		.description {
+			.make-md-column(9);
+			.make-lg-column(9);
+		}
+	}
+}

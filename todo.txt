@@ -1,0 +1,3 @@
+Filters to add:
+-Finish Date Details section
+-By date
