@@ -72,7 +72,10 @@ function dns_program_image_thumbnail( $show_url = false ) {
 		$large_image_url = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'large' );
 		$url = $large_image_url[0];
 		if ( $show_url ) {
+			$file_path = explode( '/', $url );
+			$file = array_pop( $file_path );
 			printf( '<p class="image-url"><strong>Image URL: </strong><a href="%s">%s</a></p>', $url, $url );
+			printf( '<p class="image-url"><strong>iMIS Image Page: </strong><span class="imis-path">images/Events/%s</span></p>', $file );
 		}
 		printf( '<a href="#image-modal" data-image-url="%s" title="%s" data-toggle="modal" class="modal-link">%s</a>',
 			$url, the_title_attribute( 'echo=0' ), get_the_post_thumbnail( $post->ID, 'thumbnail' ) );
