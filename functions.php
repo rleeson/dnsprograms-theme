@@ -70,9 +70,11 @@ function dns_program_image_thumbnail( $show_url = false ) {
 	global $post;
 	if ( has_post_thumbnail()) {
 		$large_image_url = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'large' );
+		$standard_image_url = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'full' );
 		$url = $large_image_url[0];
+		$imis_url = $standard_image_url[0];
 		if ( $show_url ) {
-			$file_path = explode( '/', $url );
+			$file_path = explode( '/', $imis_url );
 			$file = array_pop( $file_path );
 			printf( '<p class="image-url"><strong>Image URL: </strong><a href="%s">%s</a></p>', $url, $url );
 			printf( '<p class="image-url"><strong>iMIS Image Page: </strong><span class="imis-path">images/Events/%s</span></p>', $file );
